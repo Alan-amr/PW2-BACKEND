@@ -20,6 +20,12 @@ const Serie = sequelize.define(
         },
         portada:{
             type: DataTypes.BLOB
+        },
+        createdAt:{
+            type: DataTypes.TIME
+        },
+        updatedAt:{
+            type: DataTypes.TIME
         }
     },
 );

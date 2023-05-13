@@ -13,6 +13,12 @@ const Categoria = sequelize.define(
             allowNull: false,
             autoIncrement: true,
             primaryKey:true
+        },
+        createdAt:{
+            type: DataTypes.TIME
+        },
+        updatedAt:{
+            type: DataTypes.TIME
         }
     },
 );

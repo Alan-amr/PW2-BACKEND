@@ -21,6 +21,12 @@ const Escrito = sequelize.define(
         content:{
             type: DataTypes.BLOB,
             allowNull: false,
+        },
+        createdAt:{
+            type: DataTypes.TIME
+        },
+        updatedAt:{
+            type: DataTypes.TIME
         }
     },
 );
