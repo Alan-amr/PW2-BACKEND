@@ -18,6 +18,10 @@ const Serie = sequelize.define(
             type: DataTypes.BIGINT.UNSIGNED,
             allowNull: false,
         },
+        sinopsis:{
+            type: DataTypes.STRING,
+            allowNull: false
+        },  
         portada:{
             type: DataTypes.BLOB
         },

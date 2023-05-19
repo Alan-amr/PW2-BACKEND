@@ -24,7 +24,8 @@ const validatorCreateUsuario = [
 const validatorLogin = [
     check("email")
     .exists()
-    .notEmpty(),
+    .notEmpty()
+    .isEmail(),
     check("password")
     .exists()
     .notEmpty(),
@@ -42,11 +43,16 @@ const validatorLogin = [
 const validatorUpdateUsuario = [
     check("id")
     .exists()
-    .notEmpty(),
+    .notEmpty()
+    .isNumeric(),
     check("nombre")
     .exists()
     .notEmpty(),
     check("email")
+    .exists()
+    .notEmpty()
+    .isEmail(),
+    check("password")
     .exists()
     .notEmpty(),
     (req, res, next) => {
