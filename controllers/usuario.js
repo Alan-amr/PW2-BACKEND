@@ -1,4 +1,4 @@
-const { usuarioModel } = require("../models");
+const { usuarioModel, seriesModel } = require("../models");
 const { matchedData } = require('express-validator');
 
 const getAllUsers = async (req,res)=> {
@@ -11,8 +11,15 @@ const getAllUsers = async (req,res)=> {
 }
 const getUser = async (req,res)=> {
     try {
+        const id = req.params.id;
         matchedData(req);
-        const data = await usuarioModel.findByPk(req.params.id);
+        const data = await usuarioModel.findOne({
+            include:{
+                model:seriesModel,
+                as: 'series'
+            },
+            where:{id: id}
+        });
         res.send(data);
     } catch (error) {
         console.log(error);

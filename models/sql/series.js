@@ -43,7 +43,7 @@ const Serie = sequelize.define(
 
 Serie.hasMany(Escrito, {as: 'escritos', foreignKey: 'serie'});
 
-Usuario.hasHooks(Serie, {as: 'series', foreignKey:'autor'});
+Usuario.hasMany(Serie, {as: 'series', foreignKey:'autor'});
 
 Serie.belongsToMany(categoria, {through: categoria_serie});
 categoria.belongsToMany(Serie, {through: categoria_serie});

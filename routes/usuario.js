@@ -10,7 +10,7 @@ const {uploadMiddlewareUserImg} = require("./../utils/middleware/storage");
 router.get("/",getAllUsers);
 router.get("/:id",getUser);
 router.get("/:email/:password",validatorLogin,login);
-router.post("/",validatorCreateUsuario,uploadMiddlewareUserImg.single("imagen"),createUser);
-router.put("/:id",validatorUpdateUsuario,uploadMiddlewareUserImg.single("imagen"),UpdateUser);
+router.post("/",uploadMiddlewareUserImg.single("imagen"),createUser);
+router.put("/:id",uploadMiddlewareUserImg.single("imagen"),UpdateUser);
 
 module.exports=router

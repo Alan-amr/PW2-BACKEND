@@ -11,7 +11,7 @@ router.get("/",getAll);
 router.get("/:id",getItem);
 router.get("/search/:search",searchItem);
 router.get("/categ/:cat",searchBcateg);
-router.post("/",validatorSerie,uploadMiddlewarePortadaImg.single("portada"),createItem);
-router.put("/:id",validatorSerie,uploadMiddlewarePortadaImg.single("portada"),updateItem);
+router.post("/",uploadMiddlewarePortadaImg.single("portada"),createItem);
+router.put("/:id",uploadMiddlewarePortadaImg.single("portada"),updateItem);
 
 module.exports=router

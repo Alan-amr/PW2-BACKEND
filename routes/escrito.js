@@ -9,7 +9,7 @@ const router = express.Router();
 
 //router.get("/:serie",getItems);
 router.get("/:id",getItem);
-router.post("/",validatorFile,uploadMiddlewareDoc.single("doc"), createItem)
+router.post("/",uploadMiddlewareDoc.single("doc"), createItem)
 router.put("/:id",updateItem);
 
 module.exports=router
