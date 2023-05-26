@@ -25,7 +25,11 @@ const createItem = async (req,res)=> {
         const titulo = req.body.titulo;
         const serie = req.body.serie;
         const content = req.file.filename;
-        const data = await escritoModel.create({titulo: titulo, serie: serie, content: content});
+        const data = await escritoModel.create({
+            titulo: titulo, 
+            serie: serie, 
+            content: content
+        });
         res.send(data);
     } catch (error) {
         console.log(error);

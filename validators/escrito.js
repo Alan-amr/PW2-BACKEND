@@ -1,11 +1,11 @@
-const {check, validationResult} = require("express-validator");
+const {check, body, validationResult} = require("express-validator");
 
 const validatorFile = [
-    check("titulo")
+    body("titulo")
     .exists()
     .notEmpty()
     .isString(),
-    check("serie")
+    body("serie")
     .exists()
     .notEmpty()
     .isNumeric(),

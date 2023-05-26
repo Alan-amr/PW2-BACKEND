@@ -1,15 +1,17 @@
-const {check, validationResult} = require("express-validator");
+const {check,body, validationResult} = require("express-validator");
 
 const validatorCreateUsuario = [
-    check("nombre")
+    body("nombre")
     .exists()
     .notEmpty(),
-    check("email")
+    body("email")
     .exists()
-    .notEmpty(),
-    check("password")
+    .notEmpty()
+    .isEmail(),
+    body("password")
     .exists()
-    .notEmpty(),
+    .notEmpty()
+    .isAlphanumeric(),
     (req, res, next) => {
         try {
             validationResult(req).throw();
@@ -28,7 +30,8 @@ const validatorLogin = [
     .isEmail(),
     check("password")
     .exists()
-    .notEmpty(),
+    .notEmpty()
+    .isAlphanumeric(),
     (req, res, next) => {
         try {
             validationResult(req).throw();
@@ -45,16 +48,17 @@ const validatorUpdateUsuario = [
     .exists()
     .notEmpty()
     .isNumeric(),
-    check("nombre")
+    body("nombre")
     .exists()
     .notEmpty(),
-    check("email")
+    body("email")
     .exists()
     .notEmpty()
     .isEmail(),
-    check("password")
+    body("password")
     .exists()
-    .notEmpty(),
+    .notEmpty()
+    .isAlphanumeric(),
     (req, res, next) => {
         try {
             validationResult(req).throw();
