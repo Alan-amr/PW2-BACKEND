@@ -1,18 +1,16 @@
 const {sequelize} = require("../../config/mysql")
 const {DataTypes} = require("sequelize");
 
-const Categoria = sequelize.define(
-    "categoria",
+const Categoria_Serie = sequelize.define(
+    "categoria_serie",
     {
-        nombre:{
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        id:{
+        serie:{
             type: DataTypes.BIGINT.UNSIGNED,
             allowNull: false,
-            autoIncrement: true,
-            primaryKey:true
+        },
+        lista:{
+            type: DataTypes.BIGINT.UNSIGNED,
+            allowNull: false,
         },
         createdAt:{
             type: DataTypes.TIME
@@ -22,4 +20,4 @@ const Categoria = sequelize.define(
         }
     },
 );
-module.exports=Categoria;
+module.exports=Categoria_Serie;

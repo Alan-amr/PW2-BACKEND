@@ -22,8 +22,13 @@ const Usuario = sequelize.define(
         },
         imagen:{
             type: DataTypes.BLOB,
+        },
+        createdAt:{
+            type: DataTypes.TIME
+        },
+        updatedAt:{
+            type: DataTypes.TIME
         }
     },
 );
-
 module.exports=Usuario;

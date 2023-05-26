@@ -7,8 +7,7 @@ const models ={
     escritoModel: require('./sql/escritos'),
     listasModel: require('./sql/listas'),
     seriesModel: require('./sql/series'),
-    usuariosModel: require('./sql/usuarios')
-
+    usuarioModel: require('./sql/usuario')
 }
 
 module.exports=models

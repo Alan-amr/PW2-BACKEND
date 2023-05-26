@@ -19,8 +19,14 @@ const Escrito = sequelize.define(
             allowNull: false,
         },
         content:{
-            type: DataTypes.BLOB,
+            type: DataTypes.STRING,
             allowNull: false,
+        },
+        createdAt:{
+            type: DataTypes.TIME
+        },
+        updatedAt:{
+            type: DataTypes.TIME
         }
     },
 );

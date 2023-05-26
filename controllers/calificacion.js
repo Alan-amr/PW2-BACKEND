@@ -8,7 +8,7 @@ const getItems = async (req,res)=> {
     res.send({data});
 }
 const getItem = (req,res)=> {
-
+    
 }
 const createItem = (req,res)=> {}
 const updateItem = (req,res)=> {}

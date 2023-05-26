@@ -21,6 +21,12 @@ const Comentario = sequelize.define(
         escrito:{
             type: DataTypes.BIGINT.UNSIGNED,
             allowNull: false,
+        },
+        createdAt:{
+            type: DataTypes.TIME
+        },
+        updatedAt:{
+            type: DataTypes.TIME
         }
     },
 );
