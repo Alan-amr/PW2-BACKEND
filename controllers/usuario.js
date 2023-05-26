@@ -27,8 +27,16 @@ const getUser = async (req,res)=> {
 };
 const createUser = async (req,res)=> {
     try {
-        const {body} = req;
-        const data = await usuarioModel.create(body);
+        const nombre = req.body.nombre;
+        const email = req.body.email;
+        const password = req.body.password;
+        const imagen = req.file.filename;
+        const data = await usuarioModel.create({
+                nombre: nombre,
+                email: email,
+                password: password,
+                imagen: imagen
+            });
         console.log(data);
         res.send(data);
     } catch (error) {

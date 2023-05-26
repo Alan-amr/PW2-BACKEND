@@ -1,15 +1,15 @@
-const {check, validationResult} = require("express-validator");
+const {check,body, validationResult} = require("express-validator");
 
 const validatorSerie = [
-    check("titulo")
+    body("titulo")
     .exists()
     .notEmpty()
     .isString(),
-    check("sinopsis")
+    body("sinopsis")
     .exists()
     .notEmpty()
     .isString(),
-    check("autor")
+    body("autor")
     .exists()
     .notEmpty()
     .isNumeric(),
