@@ -1,10 +1,10 @@
-const { usuarioModel, seriesModel } = require("../models");
+const { usuarioModel, seriesModel, listasModel } = require("../models");
 const { matchedData } = require('express-validator');
 
 const getAllUsers = async (req,res)=> {
     try {
         const data= await usuarioModel.findAll({});
-        res.send({data})
+        res.send(data)
     } catch (error) {
         console.log(error);
     }
@@ -14,10 +14,14 @@ const getUser = async (req,res)=> {
         const id = req.params.id;
         matchedData(req);
         const data = await usuarioModel.findOne({
-            include:{
+            include:[{
                 model:seriesModel,
                 as: 'series'
             },
+            {
+                model: listasModel,
+                as: 'listas'
+            }],
             where:{id: id}
         });
         res.send(data);
@@ -41,6 +45,7 @@ const createUser = async (req,res)=> {
         res.send(data);
     } catch (error) {
         console.log(error);
+        res.send(error);
     }
 };
 const login = async (req,res)=> {

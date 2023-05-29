@@ -7,10 +7,12 @@ const Categoria_Serie = sequelize.define(
         serie:{
             type: DataTypes.BIGINT.UNSIGNED,
             allowNull: false,
+            foreignKey: true
         },
         categoria:{
             type: DataTypes.BIGINT.UNSIGNED,
             allowNull: false,
+            foreignkey:true
         },
         createdAt:{
             type: DataTypes.TIME

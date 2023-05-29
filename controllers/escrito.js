@@ -1,4 +1,4 @@
-const { escritoModel } = require("../models");
+const { escritoModel,comentarioModel } = require("../models");
 const { matchedData } = require('express-validator');
 
 const getItems = async (req,res)=> {
@@ -6,7 +6,7 @@ const getItems = async (req,res)=> {
         const serie = req.params.serie;
         console.log(serie);
         const data= await escritoModel.findAll({where:{ serie: serie}})
-        res.send({data})
+        res.send(data)
     } catch (error) {
         console.log(error);
     }
@@ -14,8 +14,15 @@ const getItems = async (req,res)=> {
 const getItem = async (req,res)=> {
     try {
         const id = req.params.id;
-        const data= await escritoModel.findOne({where:{ id: id}})
-        res.send({data})
+        console.log(id);
+        const data = await escritoModel.findOne({
+            include:{
+                model: comentarioModel,
+                as: 'comentarios'
+            },
+            where:{ id: id}
+        })
+        res.send(data)
     } catch (error) {
         console.log(error);
     }

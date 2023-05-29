@@ -1,10 +1,11 @@
 const express = require("express");
 require("sequelize")
-const { getItems} = require("../controllers/calificacion");
+const { createItem, updateItem} = require("../controllers/calificacion");
 const router=express.Router();
 
 //TODO http://localhost/calificacion GET,POST,DELETE,PUT
 
-router.get("/",getItems)
+router.post("/",createItem);
+router.put("/:id", updateItem)
 
 module.exports=router

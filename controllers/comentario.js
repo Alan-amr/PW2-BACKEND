@@ -1,17 +1,25 @@
 const { comentarioModel } = require("../models")
 
-const getAll = async (req,res)=> {
+const getItems = async (req,res)=> {
     const data= await comentarioModel.findAll({})
-    res.send({data})
+    res.send(data)
 }
 const getItem = (req,res)=> {}
 const createItem = async (req,res)=> {
     try {
-        const body = req.body
-        const data = await comentarioModel.create(body)
-        res.data(data);
+        const content = req.body.content;
+        const autor = req.body.autor;
+        const escrito = req.body.escrito;
+        console.log(req);
+        const data = await comentarioModel.create({
+            content: content,
+            autor: autor,
+            escrito: escrito
+        })
+        res.send(data);
     } catch (error) {
-        res.data(error);
+        console.log(error);
+        res.send(error);
     }
 }
 const updateItem = async (req,res)=> {
@@ -22,13 +30,13 @@ const updateItem = async (req,res)=> {
                 id: req.params.id
             }
         })
-        res.data(data);
+        res.send(data);
     } catch (error) {
-        res.data(error);
+        res.send(error);
         console.log(error);
     }
 }
 const deleteItem = (req,res)=> {}
 
 
-module.exports={getItems,getItem,createItem,updateItem,deleteItem}
+module.exports={createItem,updateItem,getItems}

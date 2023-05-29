@@ -1,8 +1,9 @@
 const {sequelize} = require("../../config/mysql")
 const {DataTypes} = require("sequelize");
+const Escrito = require("./escritos");
 
 const Comentario = sequelize.define(
-    "comentario",
+    "comentarios",
     {
         content:{
             type: DataTypes.STRING,
@@ -30,4 +31,7 @@ const Comentario = sequelize.define(
         }
     },
 );
+
+Escrito.hasMany(Comentario, {as: 'comentarios', foreignKey: 'escrito'})
+
 module.exports=Comentario;
