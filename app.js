@@ -1,11 +1,17 @@
 require("dotenv").config();
 const express = require("express");
+const session = require("express-session")
 const cors = require("cors");
 const {dbConnectMy} = require('./config/mysql');
 const app = express();
 require("sequelize")
 
 app.use(cors());
+app.use(session({
+    secret: 'secret key',
+    resave: false,
+    saveUninitialized: false
+}))
 app.use(express.json());
 app.use(express.static("Storage"));
 app.use(express.static("Storage-Portada"));
