@@ -1,5 +1,6 @@
 const { usuarioModel, seriesModel, listasModel } = require("../models");
 const { matchedData } = require('express-validator');
+const session = require("express-session");
 
 const getAllUsers = async (req,res)=> {
     try {
@@ -53,6 +54,9 @@ const login = async (req,res)=> {
         const email = req.params.email;
         const password = req.params.password;
         const data = await usuarioModel.findOne({ where: { email: email , password : password}})
+        if (data != null) { 
+            req.session.usuarioId = data.id;
+        }
         res.send(data);
     } catch (error) {
         console.log(error);
