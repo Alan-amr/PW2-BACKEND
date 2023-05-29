@@ -14,7 +14,7 @@ const getItem = async (req,res)=> {
                 'id',
                 'titulo',
                 'sinopsis',
-                'portada',
+                'portada', 
                 [sequelize.fn('COUNT', sequelize.col('calificaciones.id')), 'totalCalificaciones'],
                 [sequelize.fn('SUM', sequelize.col('calificaciones.valor')), 'sumaCalificaciones'],
                 [sequelize.fn('AVG', sequelize.col('calificaciones.valor')), 'promedioCalificaciones'],
