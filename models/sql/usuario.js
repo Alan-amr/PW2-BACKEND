@@ -22,7 +22,7 @@ const Usuario = sequelize.define(
             primaryKey: true
         },
         imagen:{
-            type: DataTypes.BLOB,
+            type: DataTypes.STRING,
         },
         createdAt:{
             type: DataTypes.TIME

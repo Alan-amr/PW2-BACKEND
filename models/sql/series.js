@@ -30,7 +30,7 @@ const Serie = sequelize.define(
             allowNull: false
         },  
         portada:{
-            type: DataTypes.BLOB
+            type: DataTypes.STRING
         },
         createdAt:{
             type: DataTypes.TIME
