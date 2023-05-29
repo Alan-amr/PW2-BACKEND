@@ -1,19 +1,27 @@
 const { calificacionModel } = require("../models")
 
-const getItems = async (req,res)=> {
-    /*const data= await calificacionModel.findAll({})
-    res.send({data})*/
-    const data = ["hola","mundo"];
-
-    res.send({data});
+const createItem = async (req,res)=> {
+    try {
+        const {body} = req
+        const data = await calificacionModel.create(body)
+        res.send(data)
+    } catch (error) {
+        res.send(error);
+    }
 }
-const getItem = (req,res)=> {
-    
+const updateItem = async (req,res)=> {
+    try {
+        matchedData(req);
+        const data = await calificacionModel.update(req.body,
+            { where: {id: req.params.id}});
+        res.send(data);
+    } catch (error) {
+        console.log(error);
+        res.send(error);
+    }
 }
-const createItem = (req,res)=> {}
-const updateItem = (req,res)=> {}
 const deleteItem = (req,res)=> {}
 
 
-module.exports={getItems,getItem,createItem,updateItem,deleteItem}
+module.exports={createItem,updateItem,deleteItem}
 

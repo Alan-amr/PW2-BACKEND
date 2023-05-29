@@ -1,5 +1,6 @@
 const {sequelize} = require("../../config/mysql")
 const {DataTypes} = require("sequelize");
+const Lista = require("./listas");
 
 const Usuario = sequelize.define(
     "usuario",
@@ -31,4 +32,7 @@ const Usuario = sequelize.define(
         }
     },
 );
+
+Usuario.hasMany(Lista, {as: 'listas', foreignKey: 'creador'});
+
 module.exports=Usuario;

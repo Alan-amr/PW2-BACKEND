@@ -2,7 +2,7 @@ const { categoriaModel } = require("../models")
 
 const getItems = async (req,res)=> {
     const data= await categoriaModel.findAll({})
-    res.send({data})
+    res.send(data)
 }
 const getItem = (req,res)=> {}
 const createItem = (req,res)=> {}

@@ -1,8 +1,8 @@
 const {sequelize} = require("../../config/mysql")
 const {DataTypes} = require("sequelize");
 
-const Categoria_Serie = sequelize.define(
-    "categoria_serie",
+const serie_lista = sequelize.define(
+    "serie_lista",
     {
         serie:{
             type: DataTypes.BIGINT.UNSIGNED,
@@ -20,4 +20,4 @@ const Categoria_Serie = sequelize.define(
         }
     },
 );
-module.exports=Categoria_Serie;
+module.exports=serie_lista;
